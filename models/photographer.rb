@@ -1,4 +1,4 @@
 
-class
- Photographer < ActiveRecord::Base
+class Photographer < ActiveRecord::Base
+  has_many :photos
 end
