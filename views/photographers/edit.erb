@@ -1,0 +1,26 @@
+<header>
+  <h1>Edit Photographer</h1>
+  <% if @error %>
+    <h3>There was an error updating the photog. Please try again.</h3>
+  <% end %>
+</header>
+<nav>
+  <ul>
+    <li><a href="/photographers">Photographer Menu</a></li>
+    <li><a href="/">Homepage</a></li>
+  </ul>
+</nav>
+<ul>
+  <li><h3>Choose Photographer to Edit</h3>
+    <form action="/photographer/edited">
+      <select name="photographer_id">
+        <% @photographers.each do |photog| %>
+          <option value="<%= photog.id %>"><%= photog.id %>. Name: <%= photog.name %> Age: <%= photog.age %></option>
+        <% end %>
+      </select>
+      <input type="text" placeholder="New name" name="name">
+      <input type="text" placeholder="New age" name="age">
+      <input type="submit" value="Change Photog Info">
+    </form>
+  </li>
+</ul>
