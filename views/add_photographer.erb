@@ -1,0 +1,19 @@
+<header>
+  <h1>Add Photographer</h1>
+  <% if @error %>
+    <h3>There was an error adding the photographer. Please try again.</h3>
+  <% end %>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="photographers">Photographer Menu</a></li>
+    <li><a href="/homepage">Homepage</a></li>
+  </ul>
+</nav>
+
+<form action="/photographer_added">
+  <input type="text" placeholder="Name" name="name">
+  <input type="text" placeholder="Age" name="age">
+  <input type="submit" value="Add Photographer">
+</form>
