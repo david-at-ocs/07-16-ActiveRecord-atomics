@@ -10,6 +10,7 @@ configure :development do
 end
 
 configure :production do  
+  require "pg"
   db = URI.parse(ENV['DATABASE_URL'])
 
   ActiveRecord::Base.establish_connection(
