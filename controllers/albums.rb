@@ -16,10 +16,10 @@ get "/albums/add" do
 end
 
 get "/album/added" do
-  @new_album = Album.new({"title" => params["title"], "description" => params["description"], "link" => params["link"], "photographer_id" => params["photographer_id"].to_i})
+  @new_album = Album.new({"title" => params["title"], "description" => params["description"]})
   if @new_album.valid?
     @new_album.save
-    "Photo Added"
+    "Album Added"
     # for when I convert to json
     # @new_collab_hash = @new_collab.make_hash
     # json @new_collab_hash
@@ -34,7 +34,7 @@ get "/albums/edit" do
   erb :"/albums/edit"
 end
 
-get "/photo/edited" do
+get "/album/edited" do
   @album_to_change = Album.find(params["album_id"].to_i)
   
   if !params["title"].empty?
@@ -52,6 +52,6 @@ get "/photo/edited" do
     # json @new_collab_hash
   else
     @error = true
-    erb :"/album/add"
+    erb :"/albums/add"
   end
 end
