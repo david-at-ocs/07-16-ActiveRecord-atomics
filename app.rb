@@ -5,7 +5,9 @@ require "active_record"
 require "sqlite3"
 require "sinatra"
 
-ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'photo_manager.db')
+configure :development do
+  ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'photo_manager.db')
+end
 
 # So that ActiveRecord explains the SQL it's running in the logs.
 ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
