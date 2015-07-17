@@ -9,6 +9,9 @@
 </nav>
 <ul id="view_beers">
   <% @photographers.each do |photogs| %>
-    <li><%= photogs.name %></li>
+    <li>Name: <%= photogs.name %></li>
+      <ul>
+        <li>Age: <%= photogs.age %></li>
+      </ul>
   <% end %>
 </ul>

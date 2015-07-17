@@ -19,15 +19,15 @@ get "/add_photographer" do
 end
 
 get "/photographer_added" do
-  @new_photog = Photographer.create({"name" => params["name"], "age" => params["age"]})
-  if @new_photog
-    "Photographer added"
+  @new_photog = Photographer.new({"name" => params["name"], "age" => params["age"]})
+  if @new_photog.valid?
+    @new_photog.save
+    "Photographer Added"
     # for when I convert to json
     # @new_collab_hash = @new_collab.make_hash
     # json @new_collab_hash
   else
     @error = true
-    @all_assignments = Assignment.all
-    erb :"add_collaborator_form"
+    erb :"add_photographer"
   end
 end
