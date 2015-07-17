@@ -15,6 +15,7 @@ require_relative "models/album.rb"
 
 # Controllers
 require_relative "controllers/main.rb"
+require_relative "controllers/photographers.rb"
 
 unless ActiveRecord::Base.connection.table_exists?(:photographers)
   ActiveRecord::Base.connection.create_table :photographers do |t|
