@@ -2,10 +2,10 @@ require "rubygems"
 require "bundler/setup"
 require "pry"
 require "active_record"
-require "sqlite3"
 require "sinatra"
 
 configure :development do
+  require "sqlite3"
   ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'photo_manager.db')
 end
 
