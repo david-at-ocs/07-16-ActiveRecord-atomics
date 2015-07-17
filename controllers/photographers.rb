@@ -34,7 +34,6 @@ end
 
 get "/photographer/edited" do
   @photog_to_change = Photographer.find(params["photographer_id"].to_i)
-  binding.pry
   if !params["name"].empty?
     @photog_to_change.name = params["name"]
   end
