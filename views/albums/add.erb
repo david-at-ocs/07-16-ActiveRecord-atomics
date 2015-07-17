@@ -1,0 +1,19 @@
+<header>
+  <% if @error %>
+    <h3>There was an error adding the album. Please try again.</h3>
+  <% end %>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="/albums">Album Menu</a></li>
+    <li><a href="/">Homepage</a></li>
+  </ul>
+</nav>
+<h1>Add Album</h1>
+
+<form action="/album/added">
+  <input type="text" placeholder="Title" name="title">
+  <input type="text" placeholder="Description" name="description">
+  <input type="submit" value="Add Album">
+</form>
