@@ -10,6 +10,7 @@ get "/photos/view_all" do
 end
 
 get "/photos/add" do
+  @photographers = Photographer.all
   erb :"/photos/add"
 end
 

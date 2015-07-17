@@ -1,0 +1,23 @@
+<header>
+  <% if @error %>
+    <h3>There was an error adding the photo. Please try again.</h3>
+  <% end %>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="/photos">Photo Menu</a></li>
+    <li><a href="/">Homepage</a></li>
+  </ul>
+</nav>
+<h1>Add Photo</h1>
+
+<form action="/photo/added">
+  <input type="text" width="30" placeholder="Title" name="title">
+  <input type="text" width="50" placeholder="Link" name="link">
+  <input type="text" width="50" placeholder="Description" name="description">
+  <% @photographers.each do |photog| %>
+    <option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %></option>
+  <% end %>
+  <input type="submit" value="Add Photo">
+</form>
