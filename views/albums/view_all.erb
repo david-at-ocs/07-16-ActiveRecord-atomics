@@ -1,0 +1,17 @@
+<header>
+</header>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/albums">Albums</a></li>
+  </ul>
+</nav>
+<h1>A list of all Albums</h1>
+<ul id="view_albums">
+  <% @albums.each do |album| %>
+    <li><%= album.id %>. <%= album.title %></li>
+      <ul>
+        <li>Description: <%= album.description %></li>
+      </ul>
+  <% end %>
+</ul>

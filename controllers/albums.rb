@@ -5,7 +5,7 @@ get "/albums" do
 end
 
 get "/albums/view_all" do
-  @albums = Photo.all
+  @albums = Album.all
   erb :"/albums/view_all"
 end
 
