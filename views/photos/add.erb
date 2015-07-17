@@ -13,11 +13,19 @@
 <h1>Add Photo</h1>
 
 <form action="/photo/added">
-  <input type="text" width="30" placeholder="Title" name="title">
-  <input type="text" width="50" placeholder="Link" name="link">
-  <input type="text" width="50" placeholder="Description" name="description">
-  <% @photographers.each do |photog| %>
-    <option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %></option>
-  <% end %>
+  <input type="text" size="30" placeholder="Title" name="title">
+  <input type="text" size="70" placeholder="Link" name="link">
+  <input type="text" size="50" placeholder="Description" name="description">
+  <select name="photographer_id">
+    <% @photographers.each do |photog| %>
+      <option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %></option>
+    <% end %>
+  </select>
+  <select name="album_id">
+    <option value="">Select an album</select>
+    <% @albums.each do |album| %>
+      <option value="<%= album.id %>"><%= album.id %>. <%= album.title %></option>
+    <% end %>
+  </select>
   <input type="submit" value="Add Photo">
 </form>

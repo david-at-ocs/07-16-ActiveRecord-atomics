@@ -1,0 +1,38 @@
+<header>
+  <% if @error %>
+    <h3>There was an error updating the photo. Please try again.</h3>
+  <% end %>
+</header>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/photos">Photos Page</a></li>
+  </ul>
+</nav>
+
+<h1>Edit Photo</h1>
+
+<h3>Choose Photo to Edit</h3>
+<form action="/photo/edited">
+  <select name="photo_id">
+    <% @photos.each do |photo| %>
+      <option value="<%= photo.id %>"><%= photo.id %>. <%= photo.title %></option>
+    <% end %>
+  </select>
+  <input type="text" size="20" placeholder="New title (leave blank to keep)" name="title">
+  <input type="text" size="60" placeholder="New description (leave blank to keep)" name="description">
+  <input type="text" size="60" placeholder="New link (leave blank to keep)" name="link">
+  <select name="photographer_id">
+    <option value="">New photographer</option>
+    <% @photographers.each do |photog| %>
+      <option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %></option>
+    <% end %>
+  </select>
+  <select name="album_id">
+    <option value="">New album</option>
+    <% @albums.each do |album| %>
+      <option value="<%= album.id %>"><%= album.id %>. <%= album.title %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Change Photo Info">
+</form>

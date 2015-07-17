@@ -9,7 +9,7 @@
 <h1>A list of all Photos in the database:</h1>
 <ul id="view_photos">
   <% @photos.each do |photos| %>
-    <li><%= photogs.id %>. Title: <%= photogs.name %></li>
+    <li><%= photos.id %>. <%= photos.title %></li>
       <ul>
         <li>Description: <%= photos.description %></li>
         <li>Link: <%= photos.link %></li>

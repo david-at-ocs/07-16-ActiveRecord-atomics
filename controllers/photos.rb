@@ -11,6 +11,7 @@ end
 
 get "/photos/add" do
   @photographers = Photographer.all
+  @albums = Album.all
   erb :"/photos/add"
 end
 
@@ -30,6 +31,8 @@ end
 
 get "/photos/edit" do
   @photos = Photo.all
+  @photographers = Photographer.all
+  @albums = Album.all
   erb :"/photos/edit"
 end
 
@@ -48,9 +51,12 @@ get "/photo/edited" do
   if !params["photographer_id"].empty?
     @photo_to_change.photographer_id = params["photographer_id"]
   end
+  if !params["album_id"].empty?
+    # @photo_to_change.photographer_id = params["album_id"]
+  end
   
-  if @photog_to_change.valid?
-    @photog_to_change.save
+  if @photo_to_change.valid?
+    @photo_to_change.save
     "Photographer Changed"
     # for when I convert to json
     # @new_collab_hash = @new_collab.make_hash
