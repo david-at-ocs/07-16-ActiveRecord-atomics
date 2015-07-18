@@ -10,7 +10,7 @@
 <ul id="view_photo">
   <li>Photo Id: <%= @photo.id %></li>
   <li><%= @photo.description %></li>
-  <li>Photographed by: <%= @photo.photographer.name %></li>
+  <li>Photographed by: <a href="/photographer/<%= @photo.photographer.id %>"><%= @photo.photographer.name %></a></li>
   <li>Albums:</li>
   <ul>
     <% @photo.albums.each do |a| %>

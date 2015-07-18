@@ -9,7 +9,7 @@
 <h1>Albums</h1>
 <ul id="view_albums">
   <% @albums.each do |album| %>
-    <li><%= album.id %>. <a href="/albums/<%= album.id %>"><%= album.title %></a></li>
+    <li><a href="/albums/<%= album.id %>"><%= album.title %></a></li>
       <ul>
         <li>Description: <%= album.description %></li>
       </ul>

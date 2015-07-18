@@ -51,3 +51,8 @@ get "/photographer/edited" do
     erb :"/photographers/add"
   end
 end
+
+get "/photographer/:id" do
+  @photographer = Photographer.find(params["id"].to_i)
+  erb :"/photographers/view_photographer"
+end

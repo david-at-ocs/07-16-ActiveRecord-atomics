@@ -1,0 +1,20 @@
+<header>
+</header>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/photographers">Photographers</a></li>
+  </ul>
+</nav>
+<h1><%= @photographer.name %></h1>
+<ul id="view_photographer">
+  <li>Photos:</li>
+  <ul>
+    <% @photographer.photos.each do |a| %>
+      <li><a href="/photos/<%= a.id %>"><%= a.title %></a></li>
+        <ul>
+          <li><%= a.description %></li>
+      </ul>
+    <% end %>
+  </ul>
+</ul>

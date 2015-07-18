@@ -9,9 +9,6 @@
 <h1>Photographers:</h1>
 <ul id="view_beers">
   <% @photographers.each do |photogs| %>
-    <li><%= photogs.name %></li>
-      <ul>
-        <li>Age: <%= photogs.age %></li>
-      </ul>
+    <li><a href="/photographer/<%= photogs.id %>"><%= photogs.name %></a></li>
   <% end %>
 </ul>
