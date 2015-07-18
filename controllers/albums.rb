@@ -9,11 +9,6 @@ get "/albums/view_all" do
   erb :"/albums/view_all"
 end
 
-get "/albums/:id" do
-  @album = Album.find(params["id"].to_i)
-  erb :"/albums/view_album"
-end
-
 get "/albums/add" do
   # @photographers = Photographer.all
   # @albums = Album.all
@@ -59,4 +54,9 @@ get "/album/edited" do
     @error = true
     erb :"/albums/add"
   end
+end
+
+get "/albums/:id" do
+  @album = Album.find(params["id"].to_i)
+  erb :"/albums/view_album"
 end
