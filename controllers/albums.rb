@@ -5,7 +5,6 @@ get "/albums" do
 end
 
 get "/albums/view_all" do
-  binding.pry
   @albums = Album.all
   erb :"/albums/view_all"
 end
