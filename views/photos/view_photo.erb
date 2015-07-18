@@ -13,7 +13,7 @@
   <li>Albums:</li>
   <ul>
     <% @photo.albums.each do |a| %>
-      <li><%= @photo.albums[a].title %></li>
+      <li><%= a.title %></li>
     <% end %>
   </ul>
 </ul>
