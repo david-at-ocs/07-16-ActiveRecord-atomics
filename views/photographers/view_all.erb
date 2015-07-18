@@ -6,10 +6,10 @@
     <li><a href="/photographers">Photographers Page</a></li>
   </ul>
 </nav>
-<h1>A list of all Photographers in the database:</h1>
+<h1>Photographers:</h1>
 <ul id="view_beers">
   <% @photographers.each do |photogs| %>
-    <li>Name: <%= photogs.name %></li>
+    <li><%= photogs.name %></li>
       <ul>
         <li>Age: <%= photogs.age %></li>
       </ul>
