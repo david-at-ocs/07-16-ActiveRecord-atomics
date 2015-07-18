@@ -16,9 +16,9 @@ get "/photos/add" do
 end
 
 get "/photo/added" do
-  @new_photo = Photo.new({"title" => params["title"], "description" => params["description"], "link" => params["link"], "photographer_id" => params["photographer_id"].to_i})
-  if @new_photo.valid?
-    @new_photo.save
+  @photographer = Photographer.find(params["photographer_id"].to_i)
+  if Photo.new({"title" => params["title"], "description" => params["description"], "link" => params["link"]}).valid?
+    @photographer.photos.create({"title" => params["title"], "description" => params["description"], "link" => params["link"]})
     "Photo Added"
     # for when I convert to json
     # @new_collab_hash = @new_collab.make_hash
@@ -57,7 +57,7 @@ get "/photo/edited" do
   
   if @photo_to_change.valid?
     @photo_to_change.save
-    "Photographer Changed"
+    "Photo Updated"
     # for when I convert to json
     # @new_collab_hash = @new_collab.make_hash
     # json @new_collab_hash

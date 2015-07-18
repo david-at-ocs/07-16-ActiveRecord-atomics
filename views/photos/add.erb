@@ -6,12 +6,11 @@
 
 <nav>
   <ul>
-    <li><a href="/photos">Photo Menu</a></li>
     <li><a href="/">Homepage</a></li>
+    <li><a href="/photos">Photo Menu</a></li>
   </ul>
 </nav>
 <h1>Add Photo</h1>
-
 <form action="/photo/added">
   <input type="text" size="30" placeholder="Title" name="title">
   <input type="text" size="70" placeholder="Link" name="link">
@@ -21,11 +20,11 @@
       <option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %></option>
     <% end %>
   </select>
-  <select name="album_id">
+  <!-- <select name="album_id">
     <option value="">Select an album</select>
     <% @albums.each do |album| %>
       <option value="<%= album.id %>"><%= album.id %>. <%= album.title %></option>
     <% end %>
-  </select>
+  </select> -->
   <input type="submit" value="Add Photo">
 </form>
