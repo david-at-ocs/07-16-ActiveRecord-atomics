@@ -14,7 +14,7 @@
   <li>Albums:</li>
   <ul>
     <% @photo.albums.each do |a| %>
-      <li><%= a.title %></li>
+      <li><a href="/albums/<%= a.id %>"><%= a.title %></li>
     <% end %>
   </ul>
 </ul>

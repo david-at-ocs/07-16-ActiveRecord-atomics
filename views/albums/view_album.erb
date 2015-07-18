@@ -6,14 +6,13 @@
     <li><a href="/photos">Photos Page</a></li>
   </ul>
 </nav>
-<h1><%= @album.name %></h1>
+<h1><%= @album.title %></h1>
 <ul id="view_photo">
   <li><%= @album.description %></li>
   <li>Photos:</li>
   <ul>
     <% @album.photos.each do |a| %>
-    <% binding.pry %>
-      <li><%= a.title %></li>
+      <li><a href="/photos/<%= a.id %>"><%= a.title %></a></li>
     <% end %>
   </ul>
 </ul>

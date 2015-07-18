@@ -9,7 +9,7 @@
 <h1>Photos</h1>
 <ul id="view_photos">
   <% @photos.each do |photos| %>
-    <li><a href="/photos/<%= photos.id %>"><%= photos.id %>. <%= photos.title %></a></li>
+    <li><a href="/photos/<%= photos.id %>"><%= photos.title %></a></li>
       <ul>
         <li>Description: <%= photos.description %></li>
         <li>Link: <%= photos.link %></li>
