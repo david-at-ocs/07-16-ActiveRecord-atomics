@@ -1,0 +1,19 @@
+<header>
+</header>
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/photos">Photos Page</a></li>
+  </ul>
+</nav>
+<h1><%= @photo.title %></h1>
+<ul id="view_photo">
+  <li><%= @photo.description %></li>
+  <li>Photographed by: <%= @photo.photographer.name %></li>
+  <li>Albums:</li>
+  <ul>
+    <% @photo.albums.each do |a| %>
+      <li><%= @photo.albums[a].title %></li>
+    <% end %>
+  </ul>
+</ul>
