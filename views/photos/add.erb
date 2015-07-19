@@ -27,7 +27,6 @@
   <% @albums.each do |album| %>
     <li><input type="checkbox" name="album_<%= album.id %>" value="<%= album.id %>"><%= album.title %></li>
   <% end %>
-  </ul>
-  
+  </ul>  
   <input type="submit" value="Add Photo">
 </form>
