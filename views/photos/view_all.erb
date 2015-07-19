@@ -8,12 +8,17 @@
 </nav>
 <h1>Photos</h1>
 <ul id="view_photos">
-  <% @photos.each do |photos| %>
-    <li><a href="/photos/<%= photos.id %>"><%= photos.title %></a></li>
+  <% @photos.each do |photo| %>
+    <li>
+      <% if photo.top_photo? %>
+        <li><a href="/photos/<%= photo.id %>"><%= photo.title %></a><img src="/GoldStar.png"></li>
+      <% else %>
+        <li><a href="/photos/<%= photo.id %>"><%= photo.title %></a></li>
+      <% end %>
       <ul>
-        <li>Description: <%= photos.description %></li>
-        <li>Link: <%= photos.link %></li>
-        <li>Photographer: <%= photos.photographer_id %></li>
+        <li>Description: <%= photo.description %></li>
+        <li>Link: <%= photo.link %></li>
+        <li>Photographer: <%= photo.photographer_id %></li>
       </ul>
   <% end %>
 </ul>
