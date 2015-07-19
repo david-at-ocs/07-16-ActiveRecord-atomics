@@ -9,16 +9,15 @@
 <h1>Photos</h1>
 <ul id="view_photos">
   <% @photos.each do |photo| %>
-    <li>
-      <% if photo.top_photo? %>
-        <li><a href="/photos/<%= photo.id %>"><%= photo.title %></a><img src="/GoldStar.png"></li>
-      <% else %>
-        <li><a href="/photos/<%= photo.id %>"><%= photo.title %></a></li>
-      <% end %>
-      <ul>
-        <li>Description: <%= photo.description %></li>
-        <li>Link: <%= photo.link %></li>
-        <li>Photographer: <%= photo.photographer_id %></li>
-      </ul>
+    <% if photo.top_photo? %>
+      <li><a href="/photos/<%= photo.id %>"><%= photo.title %></a><img src="/GoldStar.png"></li>
+    <% else %>
+      <li><a href="/photos/<%= photo.id %>"><%= photo.title %></a></li>
+    <% end %>
+    <ul>
+      <li>Description: <%= photo.description %></li>
+      <li>Link: <%= photo.link %></li>
+      <li>Photographer: <%= photo.photographer_id %></li>
+    </ul>
   <% end %>
 </ul>

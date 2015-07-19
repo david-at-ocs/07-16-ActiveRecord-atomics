@@ -1,18 +1,29 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/albums">Albums</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
 </header>
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/albums">Albums</a></li>
+
+<body data_page_name="albums page">
+  <h1><%= @album.title %> Album</h1>
+  <ul id="view_photo">
+    <li><%= @album.description %></li>
+    <li>Photos:</li>
+    <ul>
+      <% @album.photos.each do |a| %>
+        <li><a href="/photos/<%= a.id %>"><%= a.title %></a></li>
+      <% end %>
+    </ul>
   </ul>
-</nav>
-<h1><%= @album.title %> Album</h1>
-<ul id="view_photo">
-  <li><%= @album.description %></li>
-  <li>Photos:</li>
-  <ul>
-    <% @album.photos.each do |a| %>
-      <li><a href="/photos/<%= a.id %>"><%= a.title %></a></li>
-    <% end %>
-  </ul>
-</ul>
+</body>

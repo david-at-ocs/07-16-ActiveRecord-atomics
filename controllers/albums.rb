@@ -1,7 +1,9 @@
 
 
 get "/albums" do
-  erb :"/albums/main"
+  @albums = Album.all
+  erb :"/albums/view_all"
+  # erb :"/albums/main"
 end
 
 get "/albums/view_all" do

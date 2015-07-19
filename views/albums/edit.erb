@@ -1,25 +1,41 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/albums">Albums</a></li>
+          <li><a href="/albums/add">Add Albums</a></li>
+          <li class="present">Edit Albums</li>
+          <li><a href="/albums/delete">Delete Albums</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
   <% if @error %>
     <h3>There was an error updating the album. Please try again.</h3>
   <% end %>
 </header>
-<nav>
-  <ul>
-    <li><a href="/">Homepage</a></li>
-    <li><a href="/albums">Albums</a></li>
-  </ul>
-</nav>
 
-<h1>Edit Album</h1>
-
-<h3>Choose Album to Edit</h3>
-<form action="/album/edited">
-  <select name="album_id">
-    <% @albums.each do |album| %>
-      <option value="<%= album.id %>"><%= album.id %>. <%= album.title %> -- <%= album.description %></option>
-    <% end %>
-  </select>
-  <input type="text" size="20" placeholder="New title (leave blank to keep)" name="title">
-  <input type="text" size="40" placeholder="New description (leave blank to keep)" name="description">
-  <input type="submit" value="Update Album">
-</form>
+<body data_page_name="albums page">
+  <h1>Edit Album</h1>
+  <h3>Choose Album to Edit</h3>
+  <form action="/album/edited">
+    <ul>
+      <li>
+        <select name="album_id">
+          <% @albums.each do |album| %>
+            <option value="<%= album.id %>"><%= album.id %>. <%= album.title %></option>
+          <% end %>
+        </select>
+      </li>
+      <li><input type="text" size="20" placeholder="New title (leave blank to keep)" name="title"></li>
+      <li><input type="text" size="40" placeholder="New description (leave blank to keep)" name="description"></li>
+      <li><input type="submit" value="Update Album"></li>
+    </ul>
+  </form>
+</body>
