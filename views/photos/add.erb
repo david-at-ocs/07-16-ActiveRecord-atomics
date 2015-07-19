@@ -1,35 +1,48 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Homepage</a></li>
+          <li><a href="/photos/add">View Photos</a></li>
+          <li class="present">Add Photos</li>
+          <li><a href="/photos/edit">Edit Photos</a></li>
+          <li><a href="/photos/delete">Delete Photos</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
   <% if @error %>
     <h3>There was an error adding the photo. Please try again.</h3>
   <% end %>
 </header>
 
-<nav>
-  <ul>
-    <li><a href="/">Homepage</a></li>
-    <li><a href="/photos">Photo Menu</a></li>
-  </ul>
-</nav>
+<body data_page_name="photos page">
 <h1>Add Photo</h1>
-<form action="/photo/added">
-  <ul>
-    <li><input type="text" size="30" placeholder="Title" name="title"></li>
-    <li><input type="text" size="70" placeholder="Link" name="link"></li>
-    <li><input type="text" size="50" placeholder="Description" name="description"></li>
-    <li>
-      <select name="photographer_id">
-        <% @photographers.each do |photog| %>
-          <option value="<%= photog.id %>" name="photographer_id"><%= photog.id %>. <%= photog.name %></option>
-        <% end %>
-      </select>
-    </li>
-    <li><h3>Select an album</h3>
-      <ul>
-        <% @albums.each do |album| %>
-          <li><input type="checkbox" name="album_<%= album.id %>" value="<%= album.id %>"><%= album.title %></li>
-        <% end %>
-      </ul> 
-    </li>
-  </ul> 
-  <input type="submit" value="Add Photo">
-</form>
+  <form action="/photo/added">
+    <ul>
+      <li><input type="text" size="30" placeholder="Title" name="title"></li>
+      <li><input type="text" size="70" placeholder="Link" name="link"></li>
+      <li><input type="text" size="50" placeholder="Description" name="description"></li>
+      <li>
+        <select name="photographer_id">
+          <% @photographers.each do |photog| %>
+            <option value="<%= photog.id %>" name="photographer_id"><%= photog.id %>. <%= photog.name %></option>
+          <% end %>
+        </select>
+      </li>
+      <li><h3>Select an album</h3>
+        <ul>
+          <% @albums.each do |album| %>
+            <li><input type="checkbox" name="album_<%= album.id %>" value="<%= album.id %>"><%= album.title %></li>
+          <% end %>
+        </ul> 
+      </li>
+    </ul> 
+    <input type="submit" value="Add Photo">
+  </form>
+</body>

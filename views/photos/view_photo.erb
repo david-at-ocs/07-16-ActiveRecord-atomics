@@ -1,26 +1,40 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Homepage</a></li>
+          <li><a href="/photos">View Photos</a></li>
+          <li><a href="/photos/add">Add Photos</a></li>
+          <li><a href="/photos/edit">Edit Photos</a></li>
+          <li><a href="/photos/delete">Delete Photos</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
 </header>
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/photos">Photos Page</a></li>
-  </ul>
-</nav>
-<h1>
-  <% if @photo.top_photo? %>
-    <%= @photo.title %><img src="/GoldStar.png">
-  <% else %>
-    <%= @photo.title %>
-  <% end %>
-</h1>
-<ul id="view_photo">
-  <li>Photo Id: <%= @photo.id %></li>
-  <li><%= @photo.description %></li>
-  <li>Photographed by: <a href="/photographer/<%= @photo.photographer.id %>"><%= @photo.photographer.name %></a></li>
-  <li>Albums:</li>
-  <ul>
-    <% @photo.albums.each do |a| %>
-      <li><a href="/albums/<%= a.id %>"><%= a.title %></li>
+
+<body data_page_name="photos page">
+  <h1>
+    <% if @photo.top_photo? %>
+      <%= @photo.title %><img src="/GoldStar.png">
+    <% else %>
+      <%= @photo.title %>
     <% end %>
+  </h1>
+  <ul id="view_photo">
+    <li>Photo Id: <%= @photo.id %></li>
+    <li><%= @photo.description %></li>
+    <li>Photographed by: <a href="/photographer/<%= @photo.photographer.id %>"><%= @photo.photographer.name %></a></li>
+    <li>Albums:</li>
+    <ul>
+      <% @photo.albums.each do |a| %>
+        <li><a href="/albums/<%= a.id %>"><%= a.title %></li>
+      <% end %>
+    </ul>
   </ul>
-</ul>
+</body>
