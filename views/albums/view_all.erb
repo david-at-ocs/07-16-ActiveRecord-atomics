@@ -8,9 +8,9 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li class="present">Albums</li>
-          <li><a href="albums/add">Add Albums</a></li>
-          <li><a href="albums/edit">Edit Albums</a></li>
-          <li><a href="albums/delete">Delete Albums</a></li>
+          <li><a href="/albums/add">Add Albums</a></li>
+          <li><a href="/albums/edit">Edit Albums</a></li>
+          <li><a href="/albums/delete">Delete Albums</a></li>
         </ul>
       </nav>
       <div style="clear: both"></div>
@@ -24,7 +24,7 @@
     <% @albums.each do |album| %>
       <li><a href="/albums/<%= album.id %>"><%= album.title %></a></li>
         <ul>
-          <li>Description: <%= album.description %></li>
+          <li><%= album.description %></li>
         </ul>
     <% end %>
   </ul>
