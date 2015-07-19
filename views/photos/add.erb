@@ -12,21 +12,24 @@
 </nav>
 <h1>Add Photo</h1>
 <form action="/photo/added">
-  <input type="text" size="30" placeholder="Title" name="title">
-  <input type="text" size="70" placeholder="Link" name="link">
-  <input type="text" size="50" placeholder="Description" name="description">
-  
-  <select name="photographer_id">
-    <% @photographers.each do |photog| %>
-      <option value="<%= photog.id %>" name="photographer_id"><%= photog.id %>. <%= photog.name %></option>
-    <% end %>
-  </select>
-
-  <h3>Select an album</h3>
   <ul>
-  <% @albums.each do |album| %>
-    <li><input type="checkbox" name="album_<%= album.id %>" value="<%= album.id %>"><%= album.title %></li>
-  <% end %>
-  </ul>  
+    <li><input type="text" size="30" placeholder="Title" name="title"></li>
+    <li><input type="text" size="70" placeholder="Link" name="link"></li>
+    <li><input type="text" size="50" placeholder="Description" name="description"></li>
+    <li>
+      <select name="photographer_id">
+        <% @photographers.each do |photog| %>
+          <option value="<%= photog.id %>" name="photographer_id"><%= photog.id %>. <%= photog.name %></option>
+        <% end %>
+      </select>
+    </li>
+    <li><h3>Select an album</h3>
+      <ul>
+        <% @albums.each do |album| %>
+          <li><input type="checkbox" name="album_<%= album.id %>" value="<%= album.id %>"><%= album.title %></li>
+        <% end %>
+      </ul> 
+    </li>
+  </ul> 
   <input type="submit" value="Add Photo">
 </form>
