@@ -1,0 +1,94 @@
+/* box model fix */
+/* details: www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#mobileNav {
+  visibility: hidden;
+  width: 80%;
+}
+
+#hamburger {
+  float: right;
+}
+
+body {
+    font-family: 'Oxygen', sans-serif;
+    color: black;
+    background-image: url("/lake.jpg");
+    background-repeat: no-repeat;
+    background-color: white;
+    margin: 0px;
+}
+
+form {
+  margin: 10px;
+}
+
+body h1, h2, h3, h4, p {
+  padding-left: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+form li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+nav li  {
+    background: #DCDCDC;
+    opacity: 0.8;
+    padding: 4px;
+    padding-left: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.present {
+    background: #DCDCDC;
+    opacity: 0.4;
+}
+
+nav li:hover {
+    opacity: 0.4;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+}
+
+
+/**************************************************   Mobile Nav *************************************************/
+
+
+@media (min-width: 400px) {
+  
+  #mobileNav {
+    visibility: visible;
+    width: 100%;
+  }
+
+  #hamburger {
+    float: right;
+    visibility: hidden;
+  }
+  
+  nav li  {
+      float: left;
+/*      width: 30%;*/
+  }
+  
+}
