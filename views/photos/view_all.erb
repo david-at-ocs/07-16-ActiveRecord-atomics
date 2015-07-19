@@ -29,7 +29,7 @@
       <% end %>
       <ul>
         <li>Description: <%= photo.description %></li>
-        <li>Link: <%= photo.link %></li>
+        <li>Link: <a href="<%= photo.link %>"><%= photo.link %></a></li>
         <li>Photographer: <%= photo.photographer_id %></li>
       </ul>
     <% end %>

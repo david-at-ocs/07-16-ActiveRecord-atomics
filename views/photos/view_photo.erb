@@ -27,7 +27,7 @@
     <% end %>
   </h1>
   <ul id="view_photo">
-    <li>Photo Id: <%= @photo.id %></li>
+    <li>Link: <a href ="<%= @photo.link %>"><%= @photo.link %></a></li>
     <li><%= @photo.description %></li>
     <li>Photographed by: <a href="/photographer/<%= @photo.photographer.id %>"><%= @photo.photographer.name %></a></li>
     <li>Albums:</li>
