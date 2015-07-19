@@ -6,7 +6,13 @@
     <li><a href="/photos">Photos Page</a></li>
   </ul>
 </nav>
-<h1><%= @photo.title %></h1>
+<h1>
+  <% if @photo.top_photo? %>
+    <%= @photo.title %><img src="/GoldStar.png">
+  <% else %>
+    <%= @photo.title %>
+  <% end %>
+</h1>
 <ul id="view_photo">
   <li>Photo Id: <%= @photo.id %></li>
   <li><%= @photo.description %></li>
