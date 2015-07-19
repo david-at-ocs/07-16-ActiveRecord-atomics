@@ -1,7 +1,8 @@
 
 
 get "/photos" do
-  erb :"/photos/main"
+  @photos = Photo.all
+  erb :"/photos/view_all"
 end
 
 get "/photos/view_all" do
