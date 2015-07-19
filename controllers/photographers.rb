@@ -1,7 +1,8 @@
 
 
 get "/photographers" do
-  erb :"/photographers/main"
+  @photographers = Photographer.all
+  erb :"/photographers/view_all"
 end
 
 get "/photographers/view_all" do

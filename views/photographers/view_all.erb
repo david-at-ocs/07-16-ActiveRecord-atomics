@@ -1,14 +1,28 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="present">Photographers</li>
+          <li><a href="/photographers/add">Add Photographers</a></li>
+          <li><a href="/photographers/edit">Edit Photographers</a></li>
+          <li><a href="/photographers/delete">Delete Photographers</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
 </header>
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/photographers">Photographers Page</a></li>
+
+<body data_page_name="photogs page">
+  <h1>Photographers:</h1>
+  <ul id="view_photographers">
+    <% @photographers.each do |photogs| %>
+      <li><a href="/photographer/<%= photogs.id %>"><%= photogs.name %></a></li>
+    <% end %>
   </ul>
-</nav>
-<h1>Photographers:</h1>
-<ul id="view_beers">
-  <% @photographers.each do |photogs| %>
-    <li><a href="/photographer/<%= photogs.id %>"><%= photogs.name %></a></li>
-  <% end %>
-</ul>
+</body>

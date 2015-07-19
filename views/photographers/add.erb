@@ -1,19 +1,31 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/photographers">Photographers</a></li>
+          <li class="present">Add Photographers</li>
+          <li><a href="/photographers/edit">Edit Photographers</a></li>
+          <li><a href="/photographers/delete">Delete Photographers</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
   <% if @error %>
     <h3>There was an error adding the photographer. Please try again.</h3>
   <% end %>
 </header>
 
-<nav>
-  <ul>
-    <li><a href="/">Homepage</a></li>
-    <li><a href="/photographers">Photographer Menu</a></li>
-  </ul>
-</nav>
-<h1>Add Photographer</h1>
-
-<form action="/photographer/added">
-  <input type="text" placeholder="Name" name="name">
-  <input type="text" placeholder="Age" name="age">
-  <input type="submit" value="Add Photographer">
-</form>
+<body data_page_name="photogs page">
+  <h1>Add Photographer</h1>
+  <form action="/photographer/added">
+    <input type="text" placeholder="Name" name="name">
+    <input type="text" placeholder="Age" name="age">
+    <input type="submit" value="Add Photographer">
+  </form>
+</body>

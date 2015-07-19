@@ -1,25 +1,40 @@
 <header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/photographers">Photographers</a></li>
+          <li><a href="/photographers/add">Add Photographers</a></li>
+          <li class="present">Edit Photographers</li>
+          <li><a href="/photographers/delete">Delete Photographers</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
   <% if @error %>
     <h3>There was an error updating the photog. Please try again.</h3>
   <% end %>
 </header>
-<nav>
-  <ul>
-    <li><a href="/photographers">Photographer Menu</a></li>
-    <li><a href="/">Homepage</a></li>
-  </ul>
-</nav>
 
+<body data_page_name="photogs page">
 <h1>Edit Photographer</h1>
 
 <h3>Choose Photographer to Edit</h3>
-<form action="/photographer/edited">
-  <select name="photographer_id">
-    <% @photographers.each do |photog| %>
-      <option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %> -- Age: <%= photog.age %></option>
-    <% end %>
-  </select>
-  <input type="text" size="30" placeholder="New name (leave blank to keep)" name="name">
-  <input type="text" size="30" placeholder="New age (leave blank to keep)" name="age">
-  <input type="submit" value="Change Photog Info">
-</form>
+  <form action="/photographer/edited">
+    <ul>
+      <select name="photographer_id">
+        <% @photographers.each do |photog| %>
+          <li><option value="<%= photog.id %>"><%= photog.id %>. <%= photog.name %> -- Age: <%= photog.age %></option></li>
+        <% end %>
+      </select>
+      <li><input type="text" size="30" placeholder="New name (leave blank to keep)" name="name"></li>
+      <li><input type="text" size="30" placeholder="New age (leave blank to keep)" name="age"></li>
+      <li><input type="submit" value="Change Photog Info"></li>
+    </ul>
+  </form>
+</body>
