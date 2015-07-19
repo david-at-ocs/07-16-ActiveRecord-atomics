@@ -16,14 +16,11 @@ get "/photos/add" do
 end
 
 get "/photo/added" do
-  # @photographer = Photographer.find(params["photographer_id"].to_i)
   albums = Album.get_albums_to_add(params)
-    new_photo = Photo.new({"title" => params["title"], "description" => params["description"], "link" => params["link"], "photographer_id" => params["photographer_id"].to_i})
+  new_photo = Photo.new({"title" => params["title"], "description" => params["description"], "link" => params["link"], "photographer_id" => params["photographer_id"].to_i})
   if new_photo.valid?
-    # @photographer.photos.create({"title" => params["title"], "description" => params["description"], "link" => params["link"]})
     new_photo.albums << albums
-    binding.pry
-    new_photo.create
+    new_photo.save
     "Photo Added"
     # for when I convert to json
     # @new_collab_hash = @new_collab.make_hash
