@@ -29,4 +29,11 @@
       <% end %>
     </ul>
   </ul>
+  
+  <h3>Add photo to <%= @album.title %></h3>
+
+  <form action="/albums/add_photo">
+    <input type="hidden" size="30" name="id" value="<%= @album.id %>">
+    <input type="submit" value="Add Photo to Album">
+  </form>
 </body>

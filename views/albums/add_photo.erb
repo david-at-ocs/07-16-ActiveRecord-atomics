@@ -1,0 +1,43 @@
+<header>
+  <nav class="nav_container">
+    <div id="hamburger" class="mobile">
+      <img src="/menu.png">
+    </div>
+    <div id="mobileNav">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/albums">Albums</a></li>
+          <li><a href="/albums/add">Add Albums</a></li>
+          <li><a href="/albums/edit">Edit Albums</a></li>
+          <li><a href="/albums/delete">Delete Albums</a></li>
+        </ul>
+      </nav>
+      <div style="clear: both"></div>
+    </div>
+  </div>
+  <% if @error %>
+    <h3>There was an error adding the photo to the album. Please try again.</h3>
+  <% end %>
+</header>
+
+<body data_page_name="albums page">
+  <h1>Add photo to <%= @album.title %></h1>
+  <form action="/albums/photo_added">
+    <input type="hidden" name="album_id" value="<%= @album.id %>">
+    <ul>
+      <li><input type="text" size="30" placeholder="Title" name="title"></li>
+      <li><input type="text" size="70" placeholder="Link" name="link"></li>
+      <li><input type="text" size="50" placeholder="Description" name="description"></li>
+      <li>
+        <select name="photographer_id">
+          <% @photographers.each do |photog| %>
+            <option value="<%= photog.id %>" name="photographer_id"><%= photog.id %>. <%= photog.name %></option>
+          <% end %>
+        </select>
+      </li>
+      <li>
+    <input type="submit" value="Add Photo to Album"></li>
+    </ul>
+  </form>
+</body>

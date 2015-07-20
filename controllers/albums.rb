@@ -31,6 +31,27 @@ get "/album/added" do
   end
 end
 
+get "/albums/add_photo" do
+  @album = Album.find(params["id"])
+  @photographers = Photographer.all
+  erb :"/albums/add_photo"
+end
+
+get "/albums/photo_added" do
+  @album = Album.find(params["album_id"])
+  new_photo = Photo.new({"title" => params["title"], "description" => params["description"], "link" => params["link"], "photographer_id" => params["photographer_id"].to_i})
+  if new_photo.valid?
+    @album.photos << new_photo
+    "Photo Added to Album"
+    # for when I convert to json
+    # @new_collab_hash = @new_collab.make_hash
+    # json @new_collab_hash
+  else
+    @error = true
+    erb :"/albums/add"
+  end
+end
+
 get "/albums/edit" do
   @albums = Album.all
   erb :"/albums/edit"
@@ -59,6 +80,7 @@ get "/album/edited" do
 end
 
 get "/albums/:id" do
+  @photographers = Photographer.all
   @album = Album.find(params["id"].to_i)
   erb :"/albums/view_album"
 end
